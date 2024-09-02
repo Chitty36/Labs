@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Sanjay">
+
+	<title>Task 2.1 D3 Data Binding</title>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+	<style>
+
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        /* Header styles */
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+
+        /* SVG container styles */
+        svg {
+            display: block;
+            margin: 20px auto;
+            background-color: #ffffff;
+        }
+
+        button {
+			margin: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			font-size: 1em;
+			border: none;
+			border-radius: 5px;
+			background-color: #2c3e50;
+			color: white;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #1abc9c;
+		}
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #1a242f;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            background-color: #2c3e50;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+	</style>
+
+</head>
+
+<body>
+
+    <div class="button-container">
+        <a href="lab2.1.html" class="button">Lab2.1</a>
+        <a href="lab2.2.html" class="button">Lab2.2</a>
+        <a href="lab2.3.html" class="button">Lab2.3</a>
+        <a href="lab2.4.html" class="button">Lab2.4</a>
+    </div>
+
+	<h1>Drawing with data - Scatter Plote </h1>
+
+    <script>
+
+    var w = 600;
+    var h = 150;
+    var barPadding = 1;
+
+    var dataset = [
+                   [5, 20],
+                   [480, 90],
+                   [250, 50],
+                   [100, 33],
+                   [330, 95],
+                   [410, 12],
+                   [475, 44],
+                   [25, 67],
+                   [85, 21],
+                   [220, 88],
+    ];
+
+    var svg = d3.select("body")
+                .append("svg")
+                .attr("width", w)
+                .attr("height", h);
+    
+        svg.selectAll("circle")
+       .data(dataset)
+       .enter()
+       .append("circle")
+       .attr("cx", function(d) {
+           return d[0];
+       })
+       .attr("cy", function(d) {
+           return d[1];
+       })
+       .attr("r", function(d) {
+           return Math.sqrt(d[1]); 
+       })
+       .attr("fill", "black");
+
+    svg.selectAll("text")
+       .data(dataset)
+       .enter()
+       .append("text")
+       .text(function(d) {
+           return d[0] + "," + d[1];
+       })
+    
+       .attr("x", function(d) {
+           return d[0] + 5; 
+       })
+       .attr("y", function(d) {
+           return d[1] - 5; 
+       })
+       .attr("font-size", "10px")
+       .attr("fill", "black");
+
+    </script>
+    <p></p>
+    <br>
+    <bf></bf>
+
+    <br>
+    <bf>
+    <footer style="color:grey">COS30045 Data Visualisation<br>Jay Blogs</footer>
+
+
+</body>
+</html>

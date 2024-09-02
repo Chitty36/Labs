@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords" content="HTML, CSS"/>
+	<meta name="author" content="Your name here"/>
+
+	<title>Pets and the Pandemic</title>
+	<!--Insert description of exercise  -->
+
+	<style>
+		/* General body styles */
+		body {
+			font-family: 'Arial', sans-serif;
+			background-color: #f0f8ff;
+			color: #333;
+			margin: 0;
+			padding: 20px;
+			line-height: 1.6;
+		}
+
+		/* Header styles */
+		h1, h2 {
+			color: #2c3e50;
+			text-align: center;
+		}
+
+		h1 {
+			margin-bottom: 10px;
+		}
+
+		h2 {
+			font-size: 1.2em;
+			margin-bottom: 30px;
+		}
+
+		/* Paragraph styles */
+		p {
+			max-width: 600px;
+			margin: 0 auto 20px auto;
+			font-size: 1.1em;
+			text-align: justify;
+		}
+
+		/* List styles */
+		br + br {
+			display: block;
+			margin: 10px 0;
+		}
+
+		/* Image container styles */
+		#image-container {
+			text-align: center;
+			margin: 20px auto;
+		}
+
+		/* Image styling */
+		img {
+			width: 80%;
+			max-width: 600px;
+			height: auto;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Button styling */
+		button {
+			margin: 5px;
+			padding: 10px 20px;
+			cursor: pointer;
+			font-size: 1em;
+			border: none;
+			border-radius: 5px;
+			background-color: #2c3e50;
+			color: white;
+			transition: background-color 0.3s ease;
+		}
+
+		button:hover {
+			background-color: #1abc9c;
+		}
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+
+        .button:hover {
+            background-color: #1a242f;
+        }
+
+		/* Caption styling */
+		.caption {
+			margin-top: 10px;
+			font-size: 1em;
+			font-weight: bold;
+			text-align: center;
+			color: #555;
+		}
+
+		/* Footer styles */
+		footer {
+			text-align: center;
+			padding: 1px;
+			margin-top: 10px;
+			background-color: #2c3e50;
+			color: white;
+			position: fixed;
+			width: 100%;
+			bottom: 0;
+		}
+
+	</style>
+
+</head>
+
+<body>
+
+	<h1>Pets and the Pandemic</h1>
+	<h2>Author: Sanjay Chitty</h2>
+
+    <div class="button-container">
+        <a href="HTML Starter Template.html" class="button">Lab1.1</a>
+        <a href="lab1.2.html" class="button">Lab1.2</a>
+        <a href="lab1.3.html" class="button">Lab1.3</a>
+    </div>
+
+	<p>A report from Animal Medicines Australia (AMA) has found that many Australians took the opportunity to introduce a pet into their household during the pandemic. Their survey indicated that there was a significant increase in the percent of households taking in a new dog, fish, or bird. Their research also indicated that pets had a number of positive influences on their lives such as:</p>
+	
+	<p>Companionship<br>
+	Better Mental Health<br>
+    Joy and Happiness</p>
+
+    <div style="text-align:center; margin-top: 20px;">
+        <button onclick="switchImage(1)">2019</button>
+        <button onclick="switchImage(2)">2021</button>
+        <button onclick="switchImage(3)">Both</button>
+    </div>
+
+    <div id="image-container">
+        <img id="displayed-image" src="pets2019.png" alt="Description of Image 1">
+        <div class="caption" id="image-caption">Fig 1. Percent of most popular pets owned by Australians in 2019.</div>
+    </div>
+
+    <script>
+        const images = [
+            { src: 'pets2019.png', alt: 'Description of Image 1', caption: 'Fig 1. Percent of most popular pets owned by Australians in 2019.' },
+            { src: 'pets2021.png', alt: 'Description of Image 2', caption: 'Fig 2. Percent of most popular pets owned by Australians in 2021.' },
+            { src: 'pets20192021.png', alt: 'Description of Image 3', caption: 'Fig 3. Percent of most popular pets owned by Australians in 2019 and 2021.' }
+        ];
+
+        function switchImage(index) {
+            const image = images[index - 1];
+            document.getElementById('displayed-image').src = image.src;
+            document.getElementById('displayed-image').alt = image.alt;
+            document.getElementById('image-caption').textContent = image.caption;
+        }
+    </script>
+
+	<p>With the increase in pet ownership, the AMA is encouraging policymakers to consider the needs of companion animals and their owners when considering rental, strata, and body corporate regulations, as well as accepting animals in public places and transport.<br></p>
+
+	<footer>COS30045 Data Visualisation</footer>
+
+</body>
+</html>

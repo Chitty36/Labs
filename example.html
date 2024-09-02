@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Switcher</title>
+    <style>
+        #image-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="image-container">
+        <img id="displayed-image" src="image1.jpg" alt="Description of Image 1">
+        <div class="caption" id="image-caption">Caption for Image 1</div>
+    </div>
+
+    <div style="text-align: center;">
+        <button onclick="switchImage(1)">Image 1</button>
+        <button onclick="switchImage(2)">Image 2</button>
+        <button onclick="switchImage(3)">Image 3</button>
+    </div>
+
+    <script>
+        const images = [
+            { src: 'image1.jpg', alt: 'Description of Image 1', caption: 'Caption for Image 1' },
+            { src: 'image2.jpg', alt: 'Description of Image 2', caption: 'Caption for Image 2' },
+            { src: 'image3.jpg', alt: 'Description of Image 3', caption: 'Caption for Image 3' }
+        ];
+
+        function switchImage(index) {
+            const image = images[index - 1];
+            document.getElementById('displayed-image').src = image.src;
+            document.getElementById('displayed-image').alt = image.alt;
+            document.getElementById('image-caption').textContent = image.caption;
+        }
+    </script>
+</body>
+</html>
